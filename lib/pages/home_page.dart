@@ -26,9 +26,18 @@ class _HomePageState extends State<HomePage> {
               controller: _pageController,
               scrollDirection: Axis.vertical,
               children: const [
-                _Section(color: Colors.red),
-                _Section(color: Colors.green),
-                _Section(color: Colors.blue),
+                _Section(
+                  colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
+                  colorFromRGBO2: Color.fromRGBO(0, 127, 99, 1),
+                ),
+                _Section(
+                  colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
+                  colorFromRGBO1: Color.fromRGBO(0, 77, 59, 1),
+                ),
+                _Section(
+                  colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
+                  colorFromRGBO2: Color.fromRGBO(0, 127, 99, 1),
+                ),
               ],
             ),
           ),
@@ -71,17 +80,28 @@ class _Menu extends StatelessWidget {
 }
 
 class _Section extends StatelessWidget {
-  final Color color;
+  final Color colorFromRGBO1;
+  final Color colorFromRGBO2;
   const _Section({
     Key? key,
-    required this.color,
+    required this.colorFromRGBO1,
+    required this.colorFromRGBO2,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: color,
       height: 1000,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            colorFromRGBO1,
+            colorFromRGBO2,
+          ],
+        ),
+      ),
     );
   }
 }
