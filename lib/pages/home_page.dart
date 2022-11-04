@@ -17,32 +17,23 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Row(
         children: [
-          _Menu((section) {
-            _pageController.animateToPage(section,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.ease);
-          }),
           Expanded(
             child: PageView(
               pageSnapping: false,
               controller: _pageController,
               scrollDirection: Axis.vertical,
               children: const [
-                SectionOne(
-                  colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
-                  colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
-                ),
-                _SectionColorReverse(
-                  colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
-                  colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
-                ),
-                _Section(
-                  colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
-                  colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
-                ),
+                SectionOne(),
+                _Section(),
+                _Section(),
               ],
             ),
           ),
+          _Menu((section) {
+            _pageController.animateToPage(section,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease);
+          }),
         ],
       ),
     );
@@ -97,7 +88,15 @@ class _Menu extends StatelessWidget {
               ),
             ],
           ),
-          Container(),
+          Container(
+            height: 40,
+            width: 40,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/favicon.png'),
+                  fit: BoxFit.cover),
+            ),
+          ),
         ],
       ),
     );
@@ -105,55 +104,14 @@ class _Menu extends StatelessWidget {
 }
 
 class _Section extends StatelessWidget {
-  final Color colorFromRGBO1;
-  final Color colorFromRGBO2;
   const _Section({
     Key? key,
-    required this.colorFromRGBO1,
-    required this.colorFromRGBO2,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 1000,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            colorFromRGBO1,
-            colorFromRGBO2,
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _SectionColorReverse extends StatelessWidget {
-  final Color colorFromRGBO1;
-  final Color colorFromRGBO2;
-  const _SectionColorReverse({
-    Key? key,
-    required this.colorFromRGBO1,
-    required this.colorFromRGBO2,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1000,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            colorFromRGBO2,
-            colorFromRGBO1,
-          ],
-        ),
-      ),
     );
   }
 }
