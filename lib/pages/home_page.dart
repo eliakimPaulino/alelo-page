@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../sections/section_one.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
               controller: _pageController,
               scrollDirection: Axis.vertical,
               children: const [
-                _Section(
+                SectionOne(
                   colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
                   colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
                 ),
@@ -59,37 +61,43 @@ class _Menu extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.menu_rounded,
                 color: Color.fromRGBO(0, 127, 99, 1)),
           ),
-          IconButton(
-            splashRadius: 16,
-            onPressed: () {
-              sectionClick(0);
-            },
-            icon:
-                const Icon(Icons.circle, color: Color.fromRGBO(0, 127, 99, 1)),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                splashRadius: 16,
+                onPressed: () {
+                  sectionClick(0);
+                },
+                icon: const Icon(Icons.circle,
+                    color: Color.fromRGBO(0, 127, 99, 1)),
+              ),
+              IconButton(
+                splashRadius: 16,
+                onPressed: () {
+                  sectionClick(1);
+                },
+                icon: const Icon(Icons.circle,
+                    color: Color.fromRGBO(0, 127, 99, 1)),
+              ),
+              IconButton(
+                splashRadius: 16,
+                onPressed: () {
+                  sectionClick(2);
+                },
+                icon: const Icon(Icons.circle,
+                    color: Color.fromRGBO(0, 127, 99, 1)),
+              ),
+            ],
           ),
-          IconButton(
-            splashRadius: 16,
-            onPressed: () {
-              sectionClick(1);
-            },
-            icon:
-                const Icon(Icons.circle, color: Color.fromRGBO(0, 127, 99, 1)),
-          ),
-          IconButton(
-            splashRadius: 16,
-            onPressed: () {
-              sectionClick(2);
-            },
-            icon:
-                const Icon(Icons.circle, color: Color.fromRGBO(0, 127, 99, 1)),
-          ),
+          Container(),
         ],
       ),
     );
