@@ -13,11 +13,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Row(
         children: [
           _Menu((section) {
             _pageController.animateToPage(section,
-                duration: const Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.ease);
           }),
           Expanded(
@@ -28,15 +28,15 @@ class _HomePageState extends State<HomePage> {
               children: const [
                 _Section(
                   colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
-                  colorFromRGBO2: Color.fromRGBO(0, 127, 99, 1),
-                ),
-                _Section(
                   colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
-                  colorFromRGBO1: Color.fromRGBO(0, 77, 59, 1),
+                ),
+                _SectionColorReverse(
+                  colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
+                  colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
                 ),
                 _Section(
                   colorFromRGBO1: Color.fromRGBO(0, 127, 99, 1),
-                  colorFromRGBO2: Color.fromRGBO(0, 127, 99, 1),
+                  colorFromRGBO2: Color.fromRGBO(0, 77, 59, 1),
                 ),
               ],
             ),
@@ -57,24 +57,41 @@ class _Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-        TextButton(
+      padding: const EdgeInsets.all(2.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu_rounded,
+                color: Color.fromRGBO(0, 127, 99, 1)),
+          ),
+          IconButton(
+            splashRadius: 16,
             onPressed: () {
               sectionClick(0);
             },
-            child: const Text('Section 1')),
-        TextButton(
+            icon:
+                const Icon(Icons.circle, color: Color.fromRGBO(0, 127, 99, 1)),
+          ),
+          IconButton(
+            splashRadius: 16,
             onPressed: () {
               sectionClick(1);
             },
-            child: const Text('Section 2')),
-        TextButton(
+            icon:
+                const Icon(Icons.circle, color: Color.fromRGBO(0, 127, 99, 1)),
+          ),
+          IconButton(
+            splashRadius: 16,
             onPressed: () {
               sectionClick(2);
             },
-            child: const Text('Section 3')),
-      ]),
+            icon:
+                const Icon(Icons.circle, color: Color.fromRGBO(0, 127, 99, 1)),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -99,6 +116,33 @@ class _Section extends StatelessWidget {
           colors: [
             colorFromRGBO1,
             colorFromRGBO2,
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SectionColorReverse extends StatelessWidget {
+  final Color colorFromRGBO1;
+  final Color colorFromRGBO2;
+  const _SectionColorReverse({
+    Key? key,
+    required this.colorFromRGBO1,
+    required this.colorFromRGBO2,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 1000,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            colorFromRGBO2,
+            colorFromRGBO1,
           ],
         ),
       ),
