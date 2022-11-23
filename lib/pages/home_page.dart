@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../sections/section_one.dart';
+import '../desktop_sections/section_one.dart';
+import '../desktop_sections/section_tree.dart';
+import '../desktop_sections/section_two.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +19,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Row(
         children: [
+          // _Menu(
+          //   (section) {
+          //     _pageController.animateToPage(section,
+          //         duration: const Duration(milliseconds: 500),
+          //         curve: Curves.ease);
+          //   },
+          // ),
           Expanded(
             child: PageView(
               pageSnapping: false,
@@ -24,16 +33,18 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.vertical,
               children: const [
                 SectionOne(),
-                _Section(),
-                _Section(),
+                SectionTwo(),
+                SectionThree(),
               ],
             ),
           ),
-          _Menu((section) {
-            _pageController.animateToPage(section,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.ease);
-          }),
+          _Menu(
+            (section) {
+              _pageController.animateToPage(section,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease);
+            },
+          ),
         ],
       ),
     );
