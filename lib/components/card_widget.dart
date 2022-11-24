@@ -4,7 +4,8 @@ import '../model/card_model_list.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({
-    Key? key, required this.cardData,
+    Key? key,
+    required this.cardData,
   }) : super(key: key);
   final CardModel cardData;
 
@@ -33,8 +34,8 @@ class CardWidget extends StatelessWidget {
                   child: ListTile(
                     title: Text(
                       cardData.listTileTitle,
-                      style:
-                          TextStyle(color: cardData.listTileTitleColor, fontSize: 32),
+                      style: TextStyle(
+                          color: cardData.listTileTitleColor, fontSize: 32),
                     ),
                     subtitle: Text(cardData.listTileSubtitle),
                   ),
@@ -91,10 +92,12 @@ class CardWidget extends StatelessWidget {
                     height: 180,
                     width: 300,
                     decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(10),
+                      ),
                       image: DecorationImage(
-                          image: AssetImage(cardData.cardImage), fit: BoxFit.cover),
+                          image: AssetImage(cardData.cardImage),
+                          fit: BoxFit.cover),
                     ),
                   ),
                 ),
