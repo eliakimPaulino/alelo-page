@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
-import '../model/card_model_list.dart';
+import '../model/card_presentation_list.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({
     Key? key,
     required this.cardData,
   }) : super(key: key);
-  final CardModel cardData;
+  final CardPresentation cardData;
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,12 @@
 class EntryCardModel {
   final String cardTitle;
-  // final String cardVitrineImage;
+  final String cardVitrineImage;
   final String cardImage;
   final String cardSubtitle;
   final String cardDescription;
   EntryCardModel({
     required this.cardTitle,
-    // required this.cardVitrineImage,
+    required this.cardVitrineImage,
     required this.cardImage,
     required this.cardSubtitle,
     required this.cardDescription,
@@ -16,7 +16,7 @@ class EntryCardModel {
 List<EntryCardModel> entryCardData = [
   EntryCardModel(
     cardTitle: 'NATAL',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_natal.png',
     cardSubtitle:
         'Substitua a Cesta de Natal pelo presente preferido da sua equipe!',
@@ -25,7 +25,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'REFEIÇÃO',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_refeicao.png',
     cardSubtitle: 'É benefício pra todo mundo!',
     cardDescription:
@@ -33,7 +33,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'ALIMENTAÇÃO',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_alimentacao.png',
     cardSubtitle: 'Elimine a cesta básica e surpreenda seus colaboradores!',
     cardDescription:
@@ -41,7 +41,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'TUDO',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_tudo.png',
     cardSubtitle: 'Único & Prático',
     cardDescription:
@@ -49,7 +49,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'MULTIBENEFÍCIOS',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_multibeneficio.png',
     cardSubtitle:
         'Cartão com limites de compra na rede Alelo e gestão de subsídios',
@@ -58,7 +58,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'MOBILIDADE',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_mobilidade.png',
     cardSubtitle:
         'Múltiplas opções de transporte para seu colaborador ir  e vir',
@@ -67,7 +67,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'Gestão de Vale Transporte',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_gestaoVt.png',
     cardSubtitle: 'Eficiência e economia para sua empresa',
     cardDescription:
@@ -75,7 +75,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'PREMIAÇÃO',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_premiacao.png',
     cardSubtitle:
         'Um jeito diferente de premiar e reconhecer seus colaboradores',
@@ -84,7 +84,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'FROTA',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_frota.png',
     cardSubtitle:
         'Nosso combustível é criar soluções para otimizar sua frota',
@@ -93,7 +93,7 @@ List<EntryCardModel> entryCardData = [
   ),
   EntryCardModel(
     cardTitle: 'DESPESAS',
-    // cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
+    cardVitrineImage: 'assets/images/vitrine_desk_natal.png',
     cardImage: 'assets/images/alelo_despesas.png',
     cardSubtitle: 'O cartão para desburocratizar as despesas corporativas',
     cardDescription:
