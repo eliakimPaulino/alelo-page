@@ -29,7 +29,7 @@ class _SectionTwoState extends State<SectionTwo> {
           child: Column(
             children: [
               SizedBox(
-                height: 100,
+                height: 50,
                 width: screenSize.width,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,12 +66,12 @@ class _SectionTwoState extends State<SectionTwo> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 250,
+                    height: 300,
                     width: 550,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
                           'Oportunidades\npara sua empresa',
                           style: TextStyle(
@@ -87,61 +87,111 @@ class _SectionTwoState extends State<SectionTwo> {
                             style: TextStyle(fontSize: 12),
                           ),
                         ),
+                        SizedBox(height: 25),
+                        Align(
+                          alignment: Alignment.center,
+                          child: buildIndicator(),
+                        ),
+                        SizedBox(height: 25),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: Center(
+                                child: TextButton(
+                                  onPressed: previous,
+                                  child: const Text('<'),
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 15),
+                            Container(
+                              height: 25,
+                              width: 25,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              child: Center(
+                                child: TextButton(
+                                  onPressed: next,
+                                  child: const Text('>'),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(),
-                      Row(
-                        children: [
-                          SizedBox(
-                            height: 390,
-                            width: 25,
-                            child: TextButton(
-                              onPressed: previous,
-                              child: const Text('<'),
+                  SizedBox(
+                    height: 600,
+                    width: 700,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 600,
+                          width: 700,
+                          child: CarouselSlider.builder(
+                            carouselController: controller,
+                            options: CarouselOptions(
+                              initialPage: 0,
+                              height: 700,
+                              autoPlay: true,
+                              autoPlayInterval: const Duration(seconds: 5),
+                              onPageChanged: (index, reason) =>
+                                  setState(() => activeIndex = index),
                             ),
+                            itemCount: entryCardData.length,
+                            itemBuilder: (context, index, realIndex) {
+                              final cardData = entryCardData[index];
+                              return EntryCard(cardModel: cardData);
+                            },
                           ),
-                          SizedBox(
-                            height: 440,
-                            width: 450,
-                            child: Column(
-                              children: [
-                                CarouselSlider.builder(
-                                  carouselController: controller,
-                                  options: CarouselOptions(
-                                    initialPage: 0,
-                                    height: 420,
-                                    autoPlay: true,
-                                    autoPlayInterval:
-                                        const Duration(seconds: 5),
-                                    onPageChanged: (index, reason) =>
-                                        setState(() => activeIndex = index),
-                                  ),
-                                  itemCount: entryCardData.length,
-                                  itemBuilder: (context, index, realIndex) {
-                                    final cardData = entryCardData[index];
-                                    return EntryCard(cardModel: cardData);
-                                  },
-                                ),
-                                buildIndicator(),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 390,
-                            width: 25,
-                            child: TextButton(
-                              onPressed: next,
-                              child: const Text('>'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                        ),
+
+                        // buildIndicator(),
+                        // SizedBox(
+                        //   width: 450,
+                        //   child: Row(
+                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //     children: [
+                        //       SizedBox(
+                        //         height: 25,
+                        //         width: 25,
+                        //       ),
+                        //       Row(
+                        //         children: [
+                        //           SizedBox(
+                        //             height: 25,
+                        //             width: 25,
+                        //             child: TextButton(
+                        //               onPressed: previous,
+                        //               child: const Text('<'),
+                        //             ),
+                        //           ),
+                        //           SizedBox(
+                        //             height: 25,
+                        //             width: 25,
+                        //             child: TextButton(
+                        //               onPressed: next,
+                        //               child: const Text('>'),
+                        //             ),
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -156,9 +206,9 @@ class _SectionTwoState extends State<SectionTwo> {
         activeIndex: activeIndex,
         count: entryCardData.length,
         effect: SlideEffect(
-          dotHeight: 12,
-          dotWidth: 12,
-          radius: 12,
+          dotHeight: 10,
+          dotWidth: 10,
+          radius: 10,
           activeDotColor: Colors.orange,
           dotColor: Colors.black12,
         ),

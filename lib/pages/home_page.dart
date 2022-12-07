@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          _Menu(
+          _LateralMenu(
             (section) {
               _pageController.animateToPage(section,
                   duration: const Duration(milliseconds: 500),
@@ -53,10 +53,10 @@ class _HomePageState extends State<HomePage> {
 
 typedef SectionCallback = void Function(int);
 
-class _Menu extends StatelessWidget {
+class _LateralMenu extends StatelessWidget {
   final SectionCallback sectionClick;
 
-  const _Menu(this.sectionClick);
+  const _LateralMenu(this.sectionClick);
 
   @override
   Widget build(BuildContext context) {
@@ -114,15 +114,3 @@ class _Menu extends StatelessWidget {
   }
 }
 
-class _Section extends StatelessWidget {
-  const _Section({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1000,
-    );
-  }
-}

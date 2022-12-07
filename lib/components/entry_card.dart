@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:section_link/pages/benefit_presentation.dart';
 
 import '../model/entry_card_model.dart';
 
@@ -19,40 +20,81 @@ class EntryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: SizedBox(
-        height: 400,
-        width: 100,
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              child: SizedBox(
-                height: 300,
-                width: 350,
-                child: Image.asset(
-                  cardModel.cardVitrineImage,
-                  fit: BoxFit.cover,
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
+              child: Container(
+                color: Colors.red,
+                height: 600,
+                width: 400,
+                child: Material(
+                  child: Ink.image(
+                    image: AssetImage(cardModel.cardVitrineImage),
+                    fit: BoxFit.cover,
+                    // Image(
+                    //   cardModel.cardVitrineImage,
+                    // ),
+                    child: InkWell(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BenefitPresentation(),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  cardModel.cardTitle,
-                  style: const TextStyle(fontSize: 22),
-                ),
-                Text(
-                  cardModel.cardSubtitle,
-                  style: const TextStyle(fontSize: 18),
-                ),
-                Text(
-                  cardModel.cardDescription,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.justify,
-                  style: const TextStyle(fontSize: 12),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    cardModel.cardTitle,
+                    style: const TextStyle(
+                      letterSpacing: 4,
+                      fontSize: 22,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Container(
+                    height: 2,
+                    width: 75,
+                    color: Colors.orange,
+                  ),
+                  const SizedBox(height: 5),
+                  SizedBox(
+                    width: 380,
+                    child: Text(
+                      cardModel.cardSubtitle,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  SizedBox(
+                    width: 380,
+                    child: Text(
+                      cardModel.cardDescription,
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.justify,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                ],
+              ),
             ),
           ],
         ),
