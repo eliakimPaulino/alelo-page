@@ -20,117 +20,108 @@ class _SectionTwoState extends State<SectionTwo> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Padding(
+    return SizedBox(
+      child: Padding(
         padding: const EdgeInsets.only(top: 8.0, left: 8.0),
-        child: SizedBox(
-          height: screenSize.height,
-          width: screenSize.width,
-          child: Column(
-            children: [
-              SizedBox(
-                height: 50,
-                width: screenSize.width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Entre em contato',
-                      style: TextStyle(
-                        fontSize: 12,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      'NOSSA CARTEIRA',
-                      style: TextStyle(
-                        fontSize: 12,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 190,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/contact.png'),
-                            fit: BoxFit.cover),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 50,
+              width: screenSize.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 300,
-                    width: 550,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Oportunidades\npara sua empresa',
-                          style: TextStyle(
-                            fontSize: 54,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 25),
-                        SizedBox(
-                          width: 875,
-                          child: Text(
-                            'A parceria Contact & Alelo traz para sua empresa diversos benefícios! Navegue em nossas diversas opções e escolha aquela que é perfeira para sua necessidade!',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                        ),
-                        SizedBox(height: 25),
-                        Align(
-                          alignment: Alignment.center,
-                          child: buildIndicator(),
-                        ),
-                        SizedBox(height: 25),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              child: Center(
-                                child: TextButton(
-                                  onPressed: previous,
-                                  child: const Text('<'),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 15),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              child: Center(
-                                child: TextButton(
-                                  onPressed: next,
-                                  child: const Text('>'),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                  Text(
+                    'Entre em contato',
+                    style: TextStyle(
+                      fontSize: 12,
+                      // fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  Container(
+                    height: 50,
+                    width: 190,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/contact.png'),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 450,
+                  width: 550,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Oportunidades\npara sua empresa',
+                        style: TextStyle(
+                          fontSize: 54,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 25),
+                      SizedBox(
+                        width: 875,
+                        child: Text(
+                          'A parceria Contact & Alelo traz para sua empresa diversos benefícios! Navegue em nossas diversas opções e escolha aquela que é perfeira para sua necessidade!',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                      SizedBox(height: 50),
+                      Align(
+                        alignment: Alignment.center,
+                        child: buildIndicator(),
+                      ),
+                      SizedBox(height: 50),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 25,
+                            width: 25,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Center(
+                              child: TextButton(
+                                onPressed: previous,
+                                child: const Text('<'),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 15),
+                          Container(
+                            height: 25,
+                            width: 25,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Center(
+                              child: TextButton(
+                                onPressed: next,
+                                child: const Text('>'),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: SizedBox(
                     height: 600,
                     width: 700,
                     child: Column(
@@ -156,47 +147,13 @@ class _SectionTwoState extends State<SectionTwo> {
                             },
                           ),
                         ),
-
-                        // buildIndicator(),
-                        // SizedBox(
-                        //   width: 450,
-                        //   child: Row(
-                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //     children: [
-                        //       SizedBox(
-                        //         height: 25,
-                        //         width: 25,
-                        //       ),
-                        //       Row(
-                        //         children: [
-                        //           SizedBox(
-                        //             height: 25,
-                        //             width: 25,
-                        //             child: TextButton(
-                        //               onPressed: previous,
-                        //               child: const Text('<'),
-                        //             ),
-                        //           ),
-                        //           SizedBox(
-                        //             height: 25,
-                        //             width: 25,
-                        //             child: TextButton(
-                        //               onPressed: next,
-                        //               child: const Text('>'),
-                        //             ),
-                        //           ),
-                        //         ],
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

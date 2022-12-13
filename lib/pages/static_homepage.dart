@@ -1,21 +1,42 @@
 import 'package:flutter/material.dart';
 
-class SectionOne extends StatelessWidget {
-  const SectionOne({
+import '../desktop_sections/section_tree.dart';
+import '../desktop_sections/section_two.dart';
+
+class StaticHomePage extends StatelessWidget {
+  const StaticHomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SingleChildScrollView(
+      child: Column(
+        children: const [
+          TopBannerHeader(),
+          SectionTwo(),
+          SectionThree(),
+        ],
+      ),
+    ));
+  }
+}
+
+class TopBannerHeader extends StatelessWidget {
+  const TopBannerHeader({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Column(
+    return SizedBox(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
               Container(
-                height: screenSize.height / 1.2,
+                height: 550,
                 width: screenSize.width,
                 decoration: const BoxDecoration(
                   color: Color.fromRGBO(0, 127, 97, 1),
@@ -26,9 +47,8 @@ class SectionOne extends StatelessWidget {
                 ),
                 child: Align(
                   alignment: Alignment.center,
-                  child: Container(
-                    color: Colors.blue,
-                    height: screenSize.height / 1.8,
+                  child: SizedBox(
+                    height: 400,
                     width: screenSize.width / 1.2,
                     child: Row(
                       children: [

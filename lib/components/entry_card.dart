@@ -25,16 +25,12 @@ class EntryCard extends StatelessWidget {
             ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(5)),
               child: Container(
-                color: Colors.red,
                 height: 600,
                 width: 400,
                 child: Material(
                   child: Ink.image(
                     image: AssetImage(cardModel.cardVitrineImage),
                     fit: BoxFit.cover,
-                    // Image(
-                    //   cardModel.cardVitrineImage,
-                    // ),
                     child: InkWell(
                       onTap: () => Navigator.push(
                         context,
@@ -47,6 +43,21 @@ class EntryCard extends StatelessWidget {
                 ),
               ),
             ),
+            // ClipRRect(
+            //   borderRadius: const BorderRadius.all(Radius.circular(5)),
+            //   child: Container(
+            //     height: 600,
+            //     width: 400,
+            //     decoration: const BoxDecoration(
+            //       gradient: LinearGradient(
+            //         colors: [Colors.black, Colors.transparent],
+            //         begin: Alignment.bottomCenter,
+            //         end: Alignment.center,
+            //       ),
+            //     ),
+            //     // child: SizedBox(),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Column(

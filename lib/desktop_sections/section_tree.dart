@@ -36,32 +36,21 @@ class SectionThree extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          text(() {}, "Home"),
-                          text(() {}, "Careers"),
+                          text(() {}, "Sobre"),
                         ],
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          text(() {}, "Resources"),
-                          text(() {}, "Subscribe"),
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          text(() {}, "Location"),
-                          text(() {}, "About"),
+                          text(() {}, "Localização"),
                         ],
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          text(() {}, "Links"),
-                          text(() {}, "Contact"),
+                          text(() {}, "Contato"),
                         ],
                       ),
                       SizedBox(
@@ -117,9 +106,10 @@ class SectionThree extends StatelessWidget {
         child: Text(
           text,
           style: const TextStyle(
-              decoration: TextDecoration.underline,
-              fontSize: 20,
-              fontWeight: FontWeight.bold),
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
         ),
       ),
     );
